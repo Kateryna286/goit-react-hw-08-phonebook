@@ -6,11 +6,14 @@ import Form from './Forms/AddContactForm';
 import Container from 'components/Container/Container';
 import './App.css';
 import AppBar from 'components/AppBar/AppBar';
+import LoginView from './views/LoginView';
+import RegView from './views/RegView';
 
 function App() {
   return (
     <Container>
       <AppBar />
+
       <Switch>
         <Route path="/contacts" exact>
           <div className="container">
@@ -27,10 +30,10 @@ function App() {
           </div>
         </Route>
         <Route path="/register" exact>
-          <div>Registration</div>
+          <RegView />
         </Route>
         <Route path="/login">
-          <div>Login</div>
+          <LoginView />
         </Route>
       </Switch>
     </Container>
