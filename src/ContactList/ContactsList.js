@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from 'react-loader-spinner';
-import { contactsSelectors, contactsOperations } from 'Redux/contacts';
+import * as contactsSelectors from '../Redux/contacts/contacts-selector';
+import * as contactsOperations from '../Redux/contacts/contacts-operations';
 import './ContactList.css';
 
 export default function ContactsList() {
