@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import ContactsList from './ContactList/ContactsList';
 import Filter from './Filter/Filter';
@@ -8,8 +10,15 @@ import './App.css';
 import AppBar from 'components/AppBar/AppBar';
 import LoginView from './views/LoginView';
 import RegView from './views/RegView';
+import authOperations from './Redux/auth/auth-operation';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <Container>
       <AppBar />

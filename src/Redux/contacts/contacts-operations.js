@@ -11,7 +11,7 @@ import {
   deleteContactsError,
 } from './contacts-actions';
 
-axios.defaults.baseURL = 'https://616acc3716e7120017fa10c5.mockapi.io/api/v1';
+//axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const getContacts = () => async dispatch => {
   dispatch(getContactsRequest());
