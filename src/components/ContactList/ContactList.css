@@ -2,13 +2,14 @@
   margin-right: 40px;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 320px;
 }
 
 .item {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .itemName {

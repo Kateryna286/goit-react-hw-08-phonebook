@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import authOperations from '../Redux/auth/auth-operation';
+import authOperations from '../redux/auth/auth-operation';
 
 const styles = {
   form: {

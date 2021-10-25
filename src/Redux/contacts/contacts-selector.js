@@ -1,13 +1,13 @@
 import { createSelector } from 'reselect';
 
-export const getItems = state => state.contacts.items;
+const getItems = state => state.contacts.items;
 
-export const getFilter = state => state.contacts.filter;
+const getFilter = state => state.contacts.filter;
 
-export const isLoading = state => state.contacts.loading;
+const isLoading = state => state.contacts.loading;
 
 //мемоизированный селектор
-export const getVisibleContacts = createSelector(
+const getVisibleContacts = createSelector(
   [getItems, getFilter],
   (contacts, filter) => {
     const normalizedFilter = filter.toLowerCase().trim();
@@ -17,3 +17,12 @@ export const getVisibleContacts = createSelector(
     );
   },
 );
+
+const contactsSelectors = {
+  getItems,
+  getFilter,
+  isLoading,
+  getVisibleContacts,
+};
+
+export default contactsSelectors;

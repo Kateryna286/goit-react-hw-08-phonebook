@@ -28,10 +28,23 @@ ul {
   padding: 6px 8px;
   border-radius: 4px;
   border: none;
-  background-color: #e7ecff;
-  margin-top: 20px;
+  background-color: #2196f3;
+  width: 200px;
+  height: 40px;
+  color: white;
+  font-size: 20px;
 }
 
 .button:hover {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+input {
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+i {
+  color: #2196f3;
 }

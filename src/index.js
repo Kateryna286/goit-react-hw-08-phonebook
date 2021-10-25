@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'modern-normalize/modern-normalize.css';
 import './index.css';
 import App from './App';
-import { store, persistor } from './Redux/store';
+import { store, persistor } from './redux/store';
 
 ReactDOM.render(
   <React.StrictMode>

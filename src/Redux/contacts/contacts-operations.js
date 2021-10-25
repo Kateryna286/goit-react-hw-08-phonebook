@@ -11,9 +11,7 @@ import {
   deleteContactsError,
 } from './contacts-actions';
 
-//axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
-export const getContacts = () => async dispatch => {
+const getContacts = () => async dispatch => {
   dispatch(getContactsRequest());
 
   try {
@@ -24,7 +22,7 @@ export const getContacts = () => async dispatch => {
   }
 };
 
-export const addContact =
+const addContact =
   ({ name, number }) =>
   async dispatch => {
     const contact = { name, number };
@@ -39,7 +37,7 @@ export const addContact =
     }
   };
 
-export const deleteContact = contactId => async dispatch => {
+const deleteContact = contactId => async dispatch => {
   dispatch(deleteContactsRequest());
 
   try {
@@ -49,3 +47,11 @@ export const deleteContact = contactId => async dispatch => {
     dispatch(deleteContactsError(error));
   }
 };
+
+const contactsOperations = {
+  getContacts,
+  addContact,
+  deleteContact,
+};
+
+export default contactsOperations;
