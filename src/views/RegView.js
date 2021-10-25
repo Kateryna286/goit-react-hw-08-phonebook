@@ -42,35 +42,42 @@ export default function RegView() {
 
   return (
     <div>
-      <h1>Страница регистрации</h1>
+      <h1>Registration</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Имя
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            placeholder="Name"
+          />
         </label>
 
         <label style={styles.label}>
-          Почта
           <input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
+            placeholder="Email"
           />
         </label>
 
         <label style={styles.label}>
-          Пароль
           <input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
+            placeholder="Password"
           />
         </label>
 
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit" className="button">
+          Зарегистрироваться
+        </button>
       </form>
     </div>
   );

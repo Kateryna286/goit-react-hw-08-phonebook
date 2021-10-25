@@ -1,6 +1,6 @@
 import Form from 'components/AddContactForm';
 import Filter from 'components/Filter';
-import ContactsList from '../components/ContactList/ContactList';
+import ContactsList from '../components/ContactList';
 
 export default function ContactsView() {
   const styles = {

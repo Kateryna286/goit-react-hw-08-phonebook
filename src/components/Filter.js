@@ -8,7 +8,7 @@ const styles = {
   },
 
   input: {
-    width: 200,
+    width: 380,
     paddingLeft: 30,
     marginBottom: 30,
   },
@@ -17,7 +17,7 @@ const styles = {
     position: 'absolute',
     pointerEvents: 'none',
     left: 6,
-    bottom: 0,
+    bottom: -2,
   },
 };
 
