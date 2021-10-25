@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import ContactsList from './ContactList/ContactsList';
 import Filter from './Filter/Filter';
@@ -13,72 +13,53 @@ import RegView from './views/RegView';
 import authOperations from './Redux/auth/auth-operation';
 import PrivatRoute from 'components/navigation/PrivateRoute';
 import PublicRoute from 'components/navigation/PublicRoute';
+import authSelectors from 'Redux/auth/auth-selectors';
 
 function App() {
   const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(
+    authSelectors.getIsFetchingCurrentUser,
+  );
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <Container>
-      <AppBar />
+    !isFetchingCurrentUser && (
+      <Container>
+        <AppBar />
 
-      <Switch>
-        <PublicRoute path="/" exact>
-          Главная
-        </PublicRoute>
-        {/* <Route path="/" exact>
-          Главная
-        </Route> */}
+        <Switch>
+          <PublicRoute path="/" exact>
+            Главная
+          </PublicRoute>
 
-        <PrivatRoute path="/contacts" redirectTo="/login">
-          <div className="container">
-            <div className="formsContainer">
-              <Form />
-            </div>
-            <div className="contactsContainer">
-              <div className="contacts">
-                <h2>Contacts</h2>
-                <Filter />
-                <ContactsList />
+          <PrivatRoute path="/contacts" redirectTo="/login">
+            <div className="container">
+              <div className="formsContainer">
+                <Form />
+              </div>
+              <div className="contactsContainer">
+                <div className="contacts">
+                  <h2>Contacts</h2>
+                  <Filter />
+                  <ContactsList />
+                </div>
               </div>
             </div>
-          </div>
-        </PrivatRoute>
-        {/* <Route path="/contacts" exact>
-          <div className="container">
-            <div className="formsContainer">
-              <Form />
-            </div>
-            <div className="contactsContainer">
-              <div className="contacts">
-                <h2>Contacts</h2>
-                <Filter />
-                <ContactsList />
-              </div>
-            </div>
-          </div>
-        </Route> */}
+          </PrivatRoute>
 
-        <PublicRoute path="/register" restricted>
-          <RegView />
-        </PublicRoute>
+          <PublicRoute path="/register" restricted>
+            <RegView />
+          </PublicRoute>
 
-        {/* <Route path="/register" exact>
-          <RegView />
-        </Route> */}
-
-        <PublicRoute path="/login" redirectTo="/contacts" restricted>
-          <LoginView />
-        </PublicRoute>
-
-        {/* <Route path="/login">
-          <LoginView />
-        </Route> */}
-      </Switch>
-    </Container>
+          <PublicRoute path="/login" redirectTo="/contacts" restricted>
+            <LoginView />
+          </PublicRoute>
+        </Switch>
+      </Container>
+    )
   );
 }
 
